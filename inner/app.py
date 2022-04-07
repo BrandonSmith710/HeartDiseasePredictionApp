@@ -10,11 +10,11 @@ def create_app():
 
     APP = Flask(__name__)
 
-    json = open('heartmodel.json', 'r')
+    json = open('heart_model.json', 'r')
     loaded_json = json.read()
     json.close()
     loaded_model = keras.models.model_from_json(loaded_json)
-    loaded_model.load_weights('heartmodel_weights.h5')
+    loaded_model.load_weights('heart_model_weights.h5')
     print('true')
 
 
