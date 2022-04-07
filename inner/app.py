@@ -59,7 +59,7 @@ def create_app():
 
                     pred = process_and_predict(final)
 
-                    return render_template('results.html', answer = pred[1])
+                    return render_template('results.html', answer = str(round(pred[1], 2))+'%')
 
             return redirect(url_for('health_checkpoint'))
 
