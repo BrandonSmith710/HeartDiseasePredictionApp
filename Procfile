@@ -1,1 +1,1 @@
-web: gunicorn inner:APP -t 120
+web: gunicorn --bind 0.0.0.0:$PORT inner:APP
