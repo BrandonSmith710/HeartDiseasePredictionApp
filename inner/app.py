@@ -1,7 +1,6 @@
 from flask import Flask, request, Response, redirect, render_template, url_for
 import pickle
 import keras
-import tensorflow
 from keras.models import load_model
 
 
