@@ -10,11 +10,11 @@ def create_app():
 
     APP = Flask(__name__)
 
-    json = open('heart_model.json', 'r')
+    json = open('sequential2.json', 'r')
     loaded_json = json.read()
     json.close()
     loaded_model = keras.models.model_from_json(loaded_json)
-    loaded_model.load_weights('heart_model_weights.h5')
+    loaded_model.load_weights('sequential2_weights.h5')
     print('true')
 
 
@@ -59,7 +59,7 @@ def create_app():
 
                     pred = process_and_predict(final)
 
-                    return render_template('results.html', answer = str(round(pred[1], 2))+'%')
+                    return render_template('results.html', answer = str(round(pred[1] * 100, 2))+'%')
 
             return redirect(url_for('health_checkpoint'))
 
