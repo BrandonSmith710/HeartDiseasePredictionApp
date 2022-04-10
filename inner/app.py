@@ -1,7 +1,6 @@
 from flask import Flask, request, Response, redirect, render_template, url_for
 import pickle
-from tensorflow.keras.models import Sequential
-from keras.models import load_model
+from keras.models import load_model, Sequential, model_from_json
 
 
 
@@ -12,7 +11,7 @@ def create_app():
     json = open('sequential2.json', 'r')
     loaded_json = json.read()
     json.close()
-    loaded_model = keras.models.model_from_json(loaded_json)
+    loaded_model = model_from_json(loaded_json)
     loaded_model.load_weights('sequential2_weights.h5')
     print('true')
 
@@ -66,8 +65,6 @@ def create_app():
 
     
     def process_and_predict(vect):
-
-        # model = pickle.load(open('./kerasmod.pkl', 'rb'))
 
         return loaded_model.predict([vect])[0]
 
