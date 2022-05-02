@@ -37,9 +37,11 @@ def create_app():
 
                 if all('no' in x.lower() or 'yes' in x.lower() for x in y_n):
                     y_2 = [0 if 'no' in c.lower() else 1 for c in y_n]
-                    final = list(map(int, [v[0], y_2[0], y_2[1], v[1], y_2[2], y_2[3], y_2[4], v[2]]))
+                    final = list(map(int, [v[0], y_2[0], y_2[1], v[1], y_2[2],
+                                           y_2[3], y_2[4], v[2]]))
                     pred = process_and_predict(final)
-                    return render_template('results.html', answer = str(round(pred[1] * 100, 2))+'%')
+                    return render_template('results.html',
+                                           answer = str(round(pred[1] * 100, 2))+'%')
 
             return redirect(url_for('health_checkpoint'))
         return render_template('base.html')
