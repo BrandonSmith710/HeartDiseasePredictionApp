@@ -43,17 +43,8 @@ def create_app():
 
             return redirect(url_for('health_checkpoint'))
         return render_template('base.html')
-
     
     def process_and_predict(vect):
         return loaded_model.predict([vect])[0]
 
     return APP
-
-
-
-        
-
-
-
-
