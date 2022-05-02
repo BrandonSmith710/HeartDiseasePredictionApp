@@ -18,9 +18,9 @@ def create_app():
     @APP.route('/health_checkpoint/', methods=['GET', 'POST'])
     def health_checkpoint():
         """function allows for input which assembles a
-           vector or tensor which the Deep Neural Network
-           stored in, 'loaded_model', will predict the
-           likelihood of heart disease for"""
+           vector which the Deep Neural Network stored
+           in, 'loaded_model', will predict the likeli-
+           hood of heart disease for"""
         
         if request.method == 'POST':
             bmi = request.form.get('search')
